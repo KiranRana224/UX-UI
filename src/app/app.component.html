@@ -1,3 +1,5 @@
-<router-outlet></router-outlet>
-<app-select-dropdown></app-select-dropdown>
-<app-autocomplete></app-autocomplete>
+<button (click)="toggleSlide()">Toggle Slide</button>
+
+<div [@slideIn]="state" class="slide-box">
+  <p>This content will slide in and out!</p>
+</div>

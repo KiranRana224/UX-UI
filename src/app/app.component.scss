@@ -1,27 +1,12 @@
-.table-container {
-    margin: 20px;
+.slide-box {
+    width: 300px;
+    height: 200px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
     padding: 20px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table th, table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-  }
-  
-  button {
-    padding: 8px 12px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #45a049;
+    position: relative;
   }
   
