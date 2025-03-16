@@ -11,8 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
+import { DebounceComponent } from './UX-UI/debounce/debounce.component';
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent],
+  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
