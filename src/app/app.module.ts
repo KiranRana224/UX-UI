@@ -12,8 +12,9 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { DebounceComponent } from './UX-UI/debounce/debounce.component';
+import { FileuplodDownloadComponent } from './UX-UI/fileuplod-download/fileuplod-download.component';
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent],
+  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
