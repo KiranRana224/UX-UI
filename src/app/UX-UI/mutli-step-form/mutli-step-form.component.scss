@@ -191,7 +191,7 @@
 //   }
   button {
         display: inline-block;
-        width: 100%;
+        width: 40%;
         padding: 10px;
         margin-top: 10px;
         cursor: pointer;
@@ -217,3 +217,43 @@
       .mat-mdc-form-field{
         width: 100%;
       }
+      .steps {
+        margin-bottom: 20px;
+      }
+      
+      button[type="button"],
+      button[type="submit"] {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        flex-grow: 1; /* Ensures buttons are of equal width */
+        margin-right: 10px; /* Add space between buttons */
+        width: 48%; /* Each button should take up 48% of the row's width */
+      }
+      
+      button[disabled] {
+        background-color: #d3d3d3;
+      }
+      
+      button[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        font-weight: bold;
+      }
+      
+      button[type="submit"]:disabled {
+        background-color: #d3d3d3;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .button-row {
+        display: flex;
+        justify-content: space-between; /* Ensure equal space between buttons */
+        gap: 10px; /* Add space between buttons */
+        width: 100%; /* Ensure the button row takes up the full width */
+      }
+      

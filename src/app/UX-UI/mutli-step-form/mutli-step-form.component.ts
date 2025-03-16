@@ -12,22 +12,22 @@ export class MutliStepFormComponent {
 
   // Step 1: Personal Info Form
   step1Form = new FormGroup({
-    name: new FormControl('', [Validators.required]),
-    age: new FormControl('', [Validators.required]),
-    department: new FormControl('', [Validators.required]),
+    name: new FormControl(''),
+    age: new FormControl(''),
+    department: new FormControl(''),
   });
 
   // Step 2: Address Info Form
   step2Form = new FormGroup({
-    hno: new FormControl('', [Validators.required]),
-    city: new FormControl('', [Validators.required]),
-    state: new FormControl('', [Validators.required]),
-    pincode: new FormControl('', [Validators.required]),
+    hno: new FormControl(''),
+    city: new FormControl(''),
+    state: new FormControl(''),
+    pincode: new FormControl(''),
   });
 
   // Step 3: Test Info Form
   step3Form = new FormGroup({
-    testInfo: new FormControl('', [Validators.required]),
+    testInfo: new FormControl(''),
   });
 
   // Step Data for Display
