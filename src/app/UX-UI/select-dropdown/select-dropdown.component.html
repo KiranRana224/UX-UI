@@ -1,0 +1,14 @@
+<mat-form-field>
+  <mat-select #select multiple>
+    <mat-checkbox [(ngModel)]="allSelected" (change)="toggleAll()"
+      >All
+    </mat-checkbox>
+    <mat-option
+      *ngFor="let item of foods"
+      [value]="item"
+      (click)="optionClick()"
+    >
+      {{ item.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

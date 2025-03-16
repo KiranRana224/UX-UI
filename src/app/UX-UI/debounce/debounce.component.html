@@ -1,0 +1,23 @@
+<!-- search.component.html  -->
+<mat-card>
+  <h3>Debounce Search</h3>
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearch($event)"
+      placeholder="Search"
+      matInput
+    />
+  </mat-form-field>
+</mat-card>
+
+<!--Debouncing with Angular's Reactive Forms
+  -->
+<mat-card>
+  <h3>Debounce Search</h3>
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput [formControl]="searchControl" placeholder="Search" />
+  </mat-form-field>
+</mat-card>

@@ -1,0 +1,128 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  multiTemplateDataRows
+>
+  <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+  <ng-container matColumnDef="reqName">
+    <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2">
+      Requirement Plan Name
+    </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.reqName ? element.reqName : "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalReq">
+    <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2">Total Request</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.totalReq ? element.totalReq : "-" }}
+    </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="compYes">
+    <th mat-header-cell *matHeaderCellDef>Yes</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element?.compYes ? element.compYes : "-" }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="compNo">
+    <th mat-header-cell *matHeaderCellDef>No</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element?.compNo ? element.compNo : "-" }}
+    </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="compNa">
+    <th mat-header-cell *matHeaderCellDef>N/A</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.compNa ? element.compNa : "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="compPartial">
+    <th mat-header-cell *matHeaderCellDef>Partial</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.compPartial ? element.compPartial : "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="stApproved">
+    <th mat-header-cell *matHeaderCellDef>Approved</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.stApproved ? element.stApproved : "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="stNotApproved">
+    <th mat-header-cell *matHeaderCellDef>Not Approved</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.stNotApproved ? element.stNotApproved : "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="stFollowupRequested">
+    <th mat-header-cell *matHeaderCellDef>Follow up Requested</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.stFollowupRequested ? element.stFollowupRequested : "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="stPending">
+    <th mat-header-cell *matHeaderCellDef>Pending</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.stPending ? element.stPending : "-" }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="smeowner">
+    <th mat-header-cell *matHeaderCellDef [attr.rowspan]="2">SME Owner</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.smeowner ? element.smeowner : "-" }}
+    </td>
+  </ng-container>
+
+  <!-- Header row first group -->
+
+  <!-- Header row second group -->
+  <ng-container matColumnDef="header-row-second-group">
+    <th mat-header-cell *matHeaderCellDef [attr.colspan]="4">Compliance</th>
+  </ng-container>
+
+  <!-- Header row second group -->
+  <ng-container matColumnDef="header-row-third-group">
+    <th mat-header-cell *matHeaderCellDef [attr.colspan]="4">Status</th>
+  </ng-container>
+
+  <tr
+    mat-header-row
+    *matHeaderRowDef="[
+      'reqName',
+      'totalReq',
+      'header-row-second-group',
+      'header-row-third-group',
+      'smeowner'
+    ]"
+  ></tr>
+  <!--hidden the column-->
+  <!-- <tr
+  mat-header-row
+  *matHeaderRowDef="[
+    'reqName',
+    'totalReq',
+    'header-row-second-group',
+    'header-row-third-group',
+    'smeowner'
+  ]"
+  [hidden]="true">   
+</tr> -->
+  <tr mat-header-row *matHeaderRowDef="restOfColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: dataColumns"></tr>
+</table>
