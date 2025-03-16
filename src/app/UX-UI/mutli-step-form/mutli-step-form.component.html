@@ -1,0 +1,235 @@
+<!-- <div class="form-container">
+  <div class="progress-bar">
+    <div class="progress" [style.width.%]="(currentStep / 3) * 100">
+      <div class="step-number" *ngIf="currentStep >= 1">1</div>
+      <div class="step-number" *ngIf="currentStep >= 2">2</div>
+      <div class="step-number" *ngIf="currentStep >= 3">3</div>
+    </div>
+  </div>
+
+  <div class="step-labels">
+    <div
+      *ngFor="let step of stepLabels"
+      class="step-label"
+      [class.active]="currentStep >= step.step"
+    >
+      {{ step.label }} ({{ step.step }})
+    </div>
+  </div>
+
+  <form (ngSubmit)="submitForm()">
+    <div *ngIf="currentStep === 1" class="step">
+      <h3>Step 1: Personal Info</h3>
+      <label for="name">Name:</label>
+      <input id="name" type="text" [formControl]="step1Form.controls['name']" />
+      <div
+        *ngIf="
+          step1Form.controls['name'].invalid &&
+          step1Form.controls['name'].touched
+        "
+      >
+        Name is required.
+      </div>
+
+      <label for="name">Age:</label>
+      <input id="name" type="text" [formControl]="step1Form.controls['age']" />
+      <label for="name">department:</label>
+      <input
+        id="name"
+        type="text"
+        [formControl]="step1Form.controls['department']"
+      />
+      <button type="button" (click)="nextStep()" [disabled]="step1Form.invalid">
+        Next
+      </button>
+    </div>
+
+    <div *ngIf="currentStep === 2" class="step">
+      <h3>Step 2: Address Info</h3>
+      <label for="address">Address:</label>
+      <input
+        id="address"
+        type="text"
+        [formControl]="step2Form.controls['hno']"
+      />
+      <div
+        *ngIf="
+          step2Form.controls['hno'].invalid && step2Form.controls['hno'].touched
+        "
+      >
+        Address is required.
+      </div>
+      <button type="button" (click)="previousStep()">Previous</button>
+      <button type="button" (click)="nextStep()" [disabled]="step2Form.invalid">
+        Next
+      </button>
+    </div>
+
+    <div *ngIf="currentStep === 3" class="step">
+      <h3>Step 3: Test Info</h3>
+      <label for="testInfo">Test Info:</label>
+      <input
+        id="testInfo"
+        type="text"
+        [formControl]="step3Form.controls['testInfo']"
+      />
+      <div
+        *ngIf="
+          step3Form.controls['testInfo'].invalid &&
+          step3Form.controls['testInfo'].touched
+        "
+      >
+        Test info is required.
+      </div>
+      <button type="button" (click)="previousStep()">Previous</button>
+      <button
+        type="submit"
+        [disabled]="!step1Form.valid || !step2Form.valid || !step3Form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div> -->
+<div class="form-container">
+  <!-- Progress Bar with Step Numbers -->
+  <div class="progress-bar">
+    <div class="progress-line">
+      <div
+        *ngFor="let step of stepLabels"
+        class="step"
+        [class.active]="currentStep >= step.step"
+        [class.completed]="currentStep > step.step"
+      >
+        <span class="step-number">{{ step.step }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step Labels for Progress -->
+  <div class="step-labels">
+    <div
+      *ngFor="let step of stepLabels"
+      class="step-label"
+      [class.active]="currentStep >= step.step"
+    >
+      {{ step.label }} ({{ step.step }})
+    </div>
+  </div>
+
+  <form (ngSubmit)="submitForm()">
+    <!-- Step 1: Personal Info -->
+    <div *ngIf="currentStep === 1" class="steps">
+      <h3>Step 1: Personal Info</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>Name:</mat-label>
+        <input
+          matInput
+          id="name"
+          type="text"
+          [formControl]="step1Form.controls['name']"
+        />
+        <mat-error
+          *ngIf="
+            step1Form.controls['name'].invalid &&
+            step1Form.controls['name'].touched
+          "
+        >
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Age:</mat-label>
+        <input
+          matInput
+          id="age"
+          type="text"
+          [formControl]="step1Form.controls['age']"
+        />
+        <mat-error
+          *ngIf="
+            step1Form.controls['age'].invalid &&
+            step1Form.controls['age'].touched
+          "
+        >
+          age is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Department:</mat-label>
+        <input
+          id="department"
+          matInput
+          type="text"
+          [formControl]="step1Form.controls['department']"
+        />
+        <mat-error
+          *ngIf="
+            step1Form.controls['department'].invalid &&
+            step1Form.controls['department'].touched
+          "
+        >
+          department is required.
+        </mat-error>
+      </mat-form-field>
+
+      <button type="button" (click)="nextStep()" [disabled]="step1Form.invalid">
+        Next
+      </button>
+    </div>
+
+    <!-- Step 2: Address Info -->
+    <div *ngIf="currentStep === 2" class="steps">
+      <h3>Step 2: Address Info</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>House No.</mat-label>
+        <input
+          id="address"
+          type="text"
+          matInput
+          [formControl]="step2Form.controls['hno']"
+        />
+        <mat-error
+          *ngIf="
+            step2Form.controls['hno'].invalid &&
+            step2Form.controls['hno'].touched
+          "
+        >
+          Address is required.
+        </mat-error>
+      </mat-form-field>
+
+      <button type="button" (click)="previousStep()">Previous</button>
+      <button type="button" (click)="nextStep()" [disabled]="step2Form.invalid">
+        Next
+      </button>
+    </div>
+
+    <!-- Step 3: Test Info -->
+    <div *ngIf="currentStep === 3" class="steps">
+      <h3>Step 3: Test Info</h3>
+      <label for="testInfo">Test Info:</label>
+      <input
+        id="testInfo"
+        type="text"
+        [formControl]="step3Form.controls['testInfo']"
+      />
+      <div
+        *ngIf="
+          step3Form.controls['testInfo'].invalid &&
+          step3Form.controls['testInfo'].touched
+        "
+      >
+        Test info is required.
+      </div>
+      <button type="button" (click)="previousStep()">Previous</button>
+      <button
+        type="submit"
+        [disabled]="!step1Form.valid || !step2Form.valid || !step3Form.valid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
