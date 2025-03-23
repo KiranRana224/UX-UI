@@ -1,9 +1,13 @@
-<div class="container">
-  <form [formGroup]="formRegister">
+<div class="container pt-5">
+  <h3>FormArray</h3>
+  <form [formGroup]="formRegister" (ngSubmit)="addStudent()">
     <!-- Name Input -->
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input matInput type="text" formControlName="name" />
+      <mat-error *ngIf="formRegister.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
     </mat-form-field>
     <br />
 
@@ -11,6 +15,9 @@
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
       <input matInput type="text" formControlName="email" />
+      <mat-error *ngIf="formRegister.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
     </mat-form-field>
     <br />
 
@@ -18,6 +25,9 @@
     <mat-form-field appearance="outline">
       <mat-label>Phone</mat-label>
       <input matInput type="text" formControlName="phone" />
+      <mat-error *ngIf="formRegister.get('phone')?.hasError('required')">
+        Phone is required
+      </mat-error>
     </mat-form-field>
     <br />
 
@@ -30,6 +40,9 @@
         <mat-form-field appearance="outline" class="input-field">
           <mat-label>Subject {{ i + 1 }}</mat-label>
           <input matInput type="text" [formControlName]="i" />
+          <mat-error *ngIf="subject?.hasError('required') && subject?.touched">
+            Subject is required
+          </mat-error>
         </mat-form-field>
 
         <!-- Remove icon, shown only if there are multiple subjects -->
@@ -37,8 +50,9 @@
           *ngIf="subjectControls.length > 1"
           (click)="removeInput(i)"
           class="icon remove-icon"
+          style="color: red"
         >
-          remove
+          remove_circle
         </mat-icon>
 
         <!-- Add icon, always shown after the last subject -->
@@ -46,10 +60,15 @@
           *ngIf="i === subjectControls.length - 1"
           (click)="addInput()"
           class="icon add-icon"
+          style="color: green"
         >
-          add
+          add_circle
         </mat-icon>
       </div>
     </div>
+    <button mat-raised-button type="submit" color="primary">Save</button>
+    <button mat-stroked-button type="reset" color="warn" class="mx-4">
+      Reset
+    </button>
   </form>
 </div>
