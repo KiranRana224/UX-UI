@@ -16,8 +16,10 @@ import { FileuplodDownloadComponent } from './UX-UI/fileuplod-download/fileuplod
 import { DynamicTableComponent } from './UX-UI/dynamic-table/dynamic-table.component';
 import { MutliStepFormComponent } from './UX-UI/mutli-step-form/mutli-step-form.component';
 import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.component';
+import { FormarrayComponent } from './Forms/formarray/formarray.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent],
+  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +29,7 @@ import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.co
     MatAutocompleteModule,
     MatInputModule,
     MatOptionModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

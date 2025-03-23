@@ -1,0 +1,32 @@
+/* Align the input and icons side by side */
+.subject-container {
+    display: flex;
+    align-items: center; /* Vertically align icons and inputs */
+    gap: 8px; /* Space between input and icons */
+  }
+  
+  /* Ensures the input fields take available space without resizing */
+  .mat-form-field {
+    flex-grow: 1; /* Makes the input take all available space */
+    margin-bottom: 0; /* Remove extra margin */
+  }
+  
+  /* Style for icons */
+  .icon {
+    cursor: pointer; /* Make the icons clickable */
+    margin-left: 8px; /* Adds space between input and icons */
+    display: inline-block; /* Ensures the icons stay on the same line */
+  }
+  
+  /* Adjusts icon size if needed */
+  .add-icon,
+  .remove-icon {
+    font-size: 24px; /* You can adjust icon size here */
+  }
+  
+  .add-button-container {
+    display: flex;
+    justify-content: flex-end; /* Align the Add button to the right */
+    margin-top: 10px;
+  }
+  

@@ -1,0 +1,55 @@
+<div class="container">
+  <form [formGroup]="formRegister">
+    <!-- Name Input -->
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" />
+    </mat-form-field>
+    <br />
+
+    <!-- Email Input -->
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" />
+    </mat-form-field>
+    <br />
+
+    <!-- Phone Input -->
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput type="text" formControlName="phone" />
+    </mat-form-field>
+    <br />
+
+    <!-- Dynamic Subjects FormArray -->
+    <div formArrayName="subject">
+      <div
+        *ngFor="let subject of subjectControls; let i = index"
+        class="subject-container"
+      >
+        <mat-form-field appearance="outline" class="input-field">
+          <mat-label>Subject {{ i + 1 }}</mat-label>
+          <input matInput type="text" [formControlName]="i" />
+        </mat-form-field>
+
+        <!-- Remove icon, shown only if there are multiple subjects -->
+        <mat-icon
+          *ngIf="subjectControls.length > 1"
+          (click)="removeInput(i)"
+          class="icon remove-icon"
+        >
+          remove
+        </mat-icon>
+
+        <!-- Add icon, always shown after the last subject -->
+        <mat-icon
+          *ngIf="i === subjectControls.length - 1"
+          (click)="addInput()"
+          class="icon add-icon"
+        >
+          add
+        </mat-icon>
+      </div>
+    </div>
+  </form>
+</div>
