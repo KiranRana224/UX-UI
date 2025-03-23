@@ -1,0 +1,10 @@
+/* scroll-indicator.component.css */
+.scroll-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background-color: #4caf50;  /* Green color for the indicator */
+    transition: width 0.2s ease-out;
+  }
+  

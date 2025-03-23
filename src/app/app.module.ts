@@ -15,8 +15,9 @@ import { DebounceComponent } from './UX-UI/debounce/debounce.component';
 import { FileuplodDownloadComponent } from './UX-UI/fileuplod-download/fileuplod-download.component';
 import { DynamicTableComponent } from './UX-UI/dynamic-table/dynamic-table.component';
 import { MutliStepFormComponent } from './UX-UI/mutli-step-form/mutli-step-form.component';
+import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.component';
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent],
+  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
