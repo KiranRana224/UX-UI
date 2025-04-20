@@ -1,0 +1,46 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+    (click)="toggleSidebar()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+<div class="sidebar-container">
+  <div class="sidebar" [class.collapsed]="isCollapsed">
+    <!-- <button mat-icon-button class="toggle-btn" (click)="toggleSidebar()">
+      <mat-icon>{{ isCollapsed ? "menu" : "close" }}</mat-icon>
+    </button> -->
+
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/dashboard">
+            <mat-icon>dashboard</mat-icon>
+            <span class="label">Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/profile">
+            <mat-icon>person</mat-icon>
+            <span class="label">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/settings">
+            <mat-icon>settings</mat-icon>
+            <span class="label">Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -18,8 +18,9 @@ import { MutliStepFormComponent } from './UX-UI/mutli-step-form/mutli-step-form.
 import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.component';
 import { FormarrayComponent } from './Forms/formarray/formarray.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SidebarComponent } from './UX-UI/sidebar/sidebar.component';
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent],
+  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent, SidebarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
