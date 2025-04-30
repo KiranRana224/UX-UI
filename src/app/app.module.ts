@@ -19,8 +19,9 @@ import { ScrollIndicatorComponent } from './scroll-indicator/scroll-indicator.co
 import { FormarrayComponent } from './Forms/formarray/formarray.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './UX-UI/sidebar/sidebar.component';
+import { MatTableMultiselectComponent } from './UX-UI/mat-table-multiselect/mat-table-multiselect.component';
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent, SidebarComponent],
+  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent, SidebarComponent, MatTableMultiselectComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
