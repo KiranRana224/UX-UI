@@ -1,0 +1,177 @@
+<div class="container p-3">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Project</mat-label>
+          <input type="text" matInput formControlName="project" />
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Budget</mat-label>
+          <input type="text" matInput formControlName="budget" />
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-radio-group
+          aria-label="Select an option"
+          (change)="selectChange($event)"
+        >
+          <mat-radio-button value="Yes" checked="true">Yes</mat-radio-button>
+          <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Basic</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Basic"
+            formControlName="basic"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Tax A%</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Tax A%"
+            formControlName="taxAperc"
+            (change)="changeTaxes()"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Tax B%</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Tax B%"
+            formControlName="taxBperc"
+            (change)="changeTaxes()"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Tax C%</mat-label>
+          <input
+            type="number"
+            matInput
+            placeholder="Tax C%"
+            formControlName="taxCperc"
+            (change)="changeTaxes()"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <table>
+        <thead>
+          <th>Product</th>
+          <th>Unit</th>
+          <th>Basic</th>
+          <th>Tax A%</th>
+          <th>Tax A value</th>
+          <th>Tax B%</th>
+          <th>Tax B value</th>
+          <th>Tax C%</th>
+          <th>Tax C value</th>
+          <th>TOTAL</th>
+          <th>Action</th>
+        </thead>
+        <tbody formArrayName="taxArray">
+          <tr
+            *ngFor="
+              let item of taxArray.controls;
+              let i = index;
+              let last = last;
+              let first = first
+            "
+            [formGroupName]="i"
+          >
+            <td><input type="text" formControlName="product" /></td>
+            <td><input type="text" formControlName="unit" /></td>
+            <td>
+              <input
+                type="number"
+                formControlName="basic"
+                (change)="changeTax(i)"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                formControlName="aPerc"
+                (change)="changeTax(i)"
+                [readonly]="isDisabled"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                formControlName="aValue"
+                (change)="changeTax(i)"
+                [readonly]="true"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                formControlName="bPerc"
+                (change)="changeTax(i)"
+                [readonly]="isDisabled"
+              />
+            </td>
+            <td>
+              <input type="number" formControlName="bValue" [readonly]="true" />
+            </td>
+            <td>
+              <input
+                type="number"
+                formControlName="cPerc"
+                [readonly]="isDisabled"
+              />
+            </td>
+            <td>
+              <input type="number" formControlName="cValue" [readonly]="true" />
+            </td>
+            <td>
+              <input
+                type="number"
+                formControlName="total"
+                [readonly]="isDisabled"
+              />
+            </td>
+            <td>
+              <button type="button" (click)="removeRow(i)" *ngIf="!first">
+                🗑
+              </button>
+              <button type="button" (click)="addRow()">add</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+Total {{ calculateGrandTotal() }}
