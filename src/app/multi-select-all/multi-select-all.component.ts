@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MultiSelectAllComponent implements OnInit {
   ngOnInit(): void {
-    this.selectedItemsFromParent = ['steak-0', 'pizza-1', 'tacos-2'];
+    // this.selectedItemsFromParent = ['steak-0', 'pizza-1', 'tacos-2'];
+    setTimeout(() => {
+      const apiResponse = ['steak-0', 'pizza-1', 'tacos-2'];
+      this.selectedItemsFromParent = apiResponse;
+    }, 1000);
   }
   selectedItemsFromParent: string[] = [];
 
-  patchAll() {
-    this.selectedItemsFromParent = ['steak-0', 'pizza-1', 'tacos-2'];
-  }
+  // patchAll() {
+  //   this.selectedItemsFromParent = ['steak-0', 'pizza-1', 'tacos-2'];
+  // }
 }
