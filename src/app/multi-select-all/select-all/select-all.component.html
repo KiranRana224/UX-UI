@@ -1,0 +1,20 @@
+<mat-form-field>
+  <mat-label>Favorite food</mat-label>
+  <mat-select #select multiple>
+    <div class="select-all">
+      <mat-checkbox
+        [(ngModel)]="allSelected"
+        [ngModelOptions]="{ standalone: true }"
+        (change)="toggleAllSelection()"
+        >Select All</mat-checkbox
+      >
+    </div>
+    <mat-option
+      (click)="optionClick()"
+      *ngFor="let food of foods"
+      [value]="food.value"
+    >
+      {{ food.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

@@ -21,8 +21,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SidebarComponent } from './UX-UI/sidebar/sidebar.component';
 import { MatTableMultiselectComponent } from './UX-UI/mat-table-multiselect/mat-table-multiselect.component';
 import { FileXlsUploadComponent } from './UX-UI/fileuplod-download/file-xls-upload/file-xls-upload.component';
+import { FormExampleComponent } from './UX-UI/form-example/form-example.component';
+import { MultiSelectAllComponent } from './multi-select-all/multi-select-all.component';
+import { SelectAllComponent } from './multi-select-all/select-all/select-all.component';
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent, SidebarComponent, MatTableMultiselectComponent, FileXlsUploadComponent],
+  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent, SidebarComponent, MatTableMultiselectComponent, FileXlsUploadComponent, FormExampleComponent, MultiSelectAllComponent, SelectAllComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
