@@ -24,8 +24,30 @@ import { FileXlsUploadComponent } from './UX-UI/fileuplod-download/file-xls-uplo
 import { FormExampleComponent } from './UX-UI/form-example/form-example.component';
 import { MultiSelectAllComponent } from './multi-select-all/multi-select-all.component';
 import { SelectAllComponent } from './multi-select-all/select-all/select-all.component';
+import { DialogParentComponent } from './dialog-parent/dialog-parent.component';
+import { SearchformComponent } from './dialog-parent/searchform/searchform.component';
+import { MatDialogModule } from '@angular/material/dialog'; // ✅ Add this
+
 @NgModule({
-  declarations: [AppComponent, SelectDropdownComponent, AutocompleteComponent, DebounceComponent, FileuplodDownloadComponent, DynamicTableComponent, MutliStepFormComponent, ScrollIndicatorComponent, FormarrayComponent, SidebarComponent, MatTableMultiselectComponent, FileXlsUploadComponent, FormExampleComponent, MultiSelectAllComponent, SelectAllComponent],
+  declarations: [
+    AppComponent,
+    SelectDropdownComponent,
+    AutocompleteComponent,
+    DebounceComponent,
+    FileuplodDownloadComponent,
+    DynamicTableComponent,
+    MutliStepFormComponent,
+    ScrollIndicatorComponent,
+    FormarrayComponent,
+    SidebarComponent,
+    MatTableMultiselectComponent,
+    FileXlsUploadComponent,
+    FormExampleComponent,
+    MultiSelectAllComponent,
+    SelectAllComponent,
+    DialogParentComponent,
+    SearchformComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,6 +58,7 @@ import { SelectAllComponent } from './multi-select-all/select-all/select-all.com
     MatInputModule,
     MatOptionModule,
     NgbModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
