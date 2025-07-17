@@ -1,4 +1,45 @@
 <!-- <app-select-all [patchValues]="selectedItemsFromParent"></app-select-all>
 <button (click)="patchAll()">Patch Data</button> -->
 
-<app-select-all [patchValues]="selectedItemsFromParent"></app-select-all>
+<div class="container pt-5">
+  <h3>FormArray</h3>
+  <form [formGroup]="formRegister" (ngSubmit)="addStudent()">
+    <!-- Name Input -->
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" />
+      <mat-error *ngIf="formRegister.get('name')?.hasError('required')">
+        Name is required
+      </mat-error>
+    </mat-form-field>
+    <br />
+
+    <!-- Email Input -->
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="text" formControlName="email" />
+      <mat-error *ngIf="formRegister.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+    </mat-form-field>
+    <br />
+
+    <!-- Phone Input -->
+    <mat-form-field appearance="outline">
+      <mat-label>Phone</mat-label>
+      <input matInput type="text" formControlName="phone" />
+      <mat-error *ngIf="formRegister.get('phone')?.hasError('required')">
+        Phone is required
+      </mat-error>
+    </mat-form-field>
+    <br />
+    <app-select-all
+      [patchValues]="formRegister.get('toppings')?.value"
+    ></app-select-all>
+
+    <button mat-raised-button type="submit" color="primary">Save</button>
+    <button mat-stroked-button type="reset" color="warn" class="mx-4">
+      Reset
+    </button>
+  </form>
+</div>
