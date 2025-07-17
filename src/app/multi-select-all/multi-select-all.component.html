@@ -33,8 +33,12 @@
       </mat-error>
     </mat-form-field>
     <br />
+    <!-- <app-select-all
+      [patchValues]="formRegister.get('toppings')?.value"
+    ></app-select-all> -->
     <app-select-all
       [patchValues]="formRegister.get('toppings')?.value"
+      (selectionChange)="formRegister.get('toppings')?.setValue($event)"
     ></app-select-all>
 
     <button mat-raised-button type="submit" color="primary">Save</button>

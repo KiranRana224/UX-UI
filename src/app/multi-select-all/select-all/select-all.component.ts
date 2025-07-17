@@ -1,8 +1,10 @@
 import {
   AfterViewInit,
   Component,
+  EventEmitter,
   Input,
   OnChanges,
+  Output,
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
@@ -35,8 +37,17 @@ export class SelectAllComponent implements OnChanges, AfterViewInit {
     this.setSelectValues();
   }
 
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   if (changes['patchValues']) {
+  //     this.setSelectValues();
+  //   }
+  // }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['patchValues']) {
+      // Normalize patchValues to string[] if it's array of objects
+      this.patchValues = (this.patchValues || []).map((item: any) =>
+        typeof item === 'string' ? item : item?.value
+      );
       this.setSelectValues();
     }
   }
@@ -57,13 +68,42 @@ export class SelectAllComponent implements OnChanges, AfterViewInit {
     });
   }
 
+  // toggleAllSelection() {
+  //   if (this.allSelected) {
+  //     this.select.options.forEach((item: MatOption) => item.select());
+  //   } else {
+  //     this.select.options.forEach((item: MatOption) => item.deselect());
+  //   }
+  //   this.select._onChange(this.getSelectedValues());
+  // }
+
+  // optionClick() {
+  //   let newStatus = true;
+  //   this.select.options.forEach((item: MatOption) => {
+  //     if (!item.selected) {
+  //       newStatus = false;
+  //     }
+  //   });
+  //   this.allSelected = newStatus;
+  // }
+
+  private getSelectedValues(): string[] {
+    return this.select.options
+      .filter((option: MatOption) => option.selected)
+      .map((option: MatOption) => option.value);
+  }
+
+  @Output() selectionChange = new EventEmitter<string[]>();
+
   toggleAllSelection() {
     if (this.allSelected) {
       this.select.options.forEach((item: MatOption) => item.select());
     } else {
       this.select.options.forEach((item: MatOption) => item.deselect());
     }
-    this.select._onChange(this.getSelectedValues());
+    const selected = this.getSelectedValues();
+    this.select._onChange(selected);
+    this.selectionChange.emit(selected); // <-- notify parent
   }
 
   optionClick() {
@@ -74,11 +114,8 @@ export class SelectAllComponent implements OnChanges, AfterViewInit {
       }
     });
     this.allSelected = newStatus;
-  }
 
-  private getSelectedValues(): string[] {
-    return this.select.options
-      .filter((option: MatOption) => option.selected)
-      .map((option: MatOption) => option.value);
+    const selected = this.getSelectedValues();
+    this.selectionChange.emit(selected); // <-- notify parent
   }
 }

@@ -47,6 +47,7 @@ export class MultiSelectAllComponent implements OnInit {
 
   addStudent() {
     this.formRegister.markAllAsTouched();
+    console.log(this.formRegister.value);
   }
   patchData() {
     const patchToppings = this.data.toppings.map((item) => item.value);
@@ -55,7 +56,8 @@ export class MultiSelectAllComponent implements OnInit {
       name: this.data.name,
       email: this.data.email,
       phone: this.data.phone,
-      toppings: patchToppings,
+      // toppings: patchToppings,
+      toppings: this.data.toppings,
     });
   }
 }
