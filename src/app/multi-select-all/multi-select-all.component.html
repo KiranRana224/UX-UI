@@ -40,7 +40,9 @@
       [patchValues]="formRegister.get('toppings')?.value"
       (selectionChange)="formRegister.get('toppings')?.setValue($event)"
     ></app-select-all>
-
+    <!-- <app-select-multi-all
+      [patchValues]="formRegister.controls.topp"
+    ></app-select-multi-all> -->
     <button mat-raised-button type="submit" color="primary">Save</button>
     <button mat-stroked-button type="reset" color="warn" class="mx-4">
       Reset

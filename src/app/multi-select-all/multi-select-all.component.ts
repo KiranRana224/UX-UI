@@ -37,12 +37,13 @@ export class MultiSelectAllComponent implements OnInit {
     this.patchData();
   }
   createForm() {
-    this.formRegister = this.fb.group({
-      name: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      phone: new FormControl('', Validators.required),
+    return (this.formRegister = this.fb.group({
+      name: [''],
+      email: [''],
+      phone: [''],
       toppings: [''],
-    });
+      topp: [''],
+    }));
   }
 
   addStudent() {
