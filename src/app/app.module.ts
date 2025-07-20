@@ -26,7 +26,11 @@ import { MultiSelectAllComponent } from './multi-select-all/multi-select-all.com
 import { SelectAllComponent } from './multi-select-all/select-all/select-all.component';
 import { DialogParentComponent } from './dialog-parent/dialog-parent.component';
 import { SearchformComponent } from './dialog-parent/searchform/searchform.component';
-import { MatDialogModule } from '@angular/material/dialog'; // ✅ Add this
+import { MatDialogModule } from '@angular/material/dialog';
+import { SelectMultiAllComponent } from './multi-select-all/select-multi-all/select-multi-all.component';
+import { SearcLoadScrollComponent } from './searc-load-scroll/searc-load-scroll.component'; // ✅ Add this
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -47,6 +51,8 @@ import { MatDialogModule } from '@angular/material/dialog'; // ✅ Add this
     SelectAllComponent,
     DialogParentComponent,
     SearchformComponent,
+    SelectMultiAllComponent,
+    SearcLoadScrollComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +65,8 @@ import { MatDialogModule } from '@angular/material/dialog'; // ✅ Add this
     MatOptionModule,
     NgbModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
