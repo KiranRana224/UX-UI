@@ -31,6 +31,7 @@ import { SelectMultiAllComponent } from './multi-select-all/select-multi-all/sel
 import { SearcLoadScrollComponent } from './searc-load-scroll/searc-load-scroll.component'; // ✅ Add this
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CheckboxComponent } from './UX-UI/checkbox/checkbox.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     SearchformComponent,
     SelectMultiAllComponent,
     SearcLoadScrollComponent,
+    CheckboxComponent,
   ],
   imports: [
     BrowserModule,
