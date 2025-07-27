@@ -12,3 +12,17 @@
 // ::ng-deep .custom-colored-checkbox[data-color] .mdc-checkbox__background {
 //   border: 2px solid attr(data-color color, gray) !important;
 // }
+.progress-chart-wrapper {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+canvas {
+  width: 100% !important;
+  height: 50px !important; /* height of the bar */
+  border-radius: 10px;
+}

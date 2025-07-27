@@ -32,6 +32,7 @@ import { SearcLoadScrollComponent } from './searc-load-scroll/searc-load-scroll.
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CheckboxComponent } from './UX-UI/checkbox/checkbox.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { CheckboxComponent } from './UX-UI/checkbox/checkbox.component';
     MatDialogModule,
     MatProgressSpinnerModule,
     ScrollingModule,
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
