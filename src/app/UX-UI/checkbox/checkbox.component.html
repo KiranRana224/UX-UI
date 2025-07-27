@@ -1,0 +1,15 @@
+<div *ngFor="let user of users">
+  <mat-checkbox
+    [(ngModel)]="user.checked"
+    [ngStyle]="{
+      '--mdc-checkbox-selected-icon-color': user.color,
+      '--mdc-checkbox-unselected-icon-color': user.color,
+      '--mdc-checkbox-selected-focus-icon-color': user.color,
+      '--mdc-checkbox-selected-hover-icon-color': user.color,
+      '--mdc-checkbox-selected-pressed-icon-color': user.color
+    }"
+    class="colored-checkbox"
+  >
+    {{ user.name }}
+  </mat-checkbox>
+</div>
