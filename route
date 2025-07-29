@@ -1,0 +1,111 @@
+bill to po
+1.bill
+
+          <ng-container matColumnDef="po_No">
+            <th
+              scope="col"
+              mat-header-cell
+              *matHeaderCellDef
+              mat-sort-header="pono"
+              color="primary"
+            >
+             P.O.NO
+            </th>
+            <td
+              mat-cell
+              *matCellDef="let element"
+            >
+              <a *ngIf="vendorViewBillDetail"
+              (click)="openpurchaseDialog(element)" class="link_color">
+                {{ element.purchase_order_master.purchase_order_no }}
+              </a>
+              <span *ngIf="!vendorViewBillDetail">
+                {{ element.purchase_order_master.purchase_order_no }}
+              </span>
+            </td> 
+          </ng-container>
+          
+          
+          
+ /*****ts
+   openpurchaseDialog(element: any) {
+    this.displaySpinner = true;
+    this.router.navigate(['/purchase/purchase-order'], {
+      state: {
+        purchaseOrder: element
+      }
+    });
+    setTimeout(() => {
+      this.displaySpinner = false;
+    }, 100);
+  }
+
+
+
+/*po*/
+constructor(private route:Router){
+   if (
+      this.router.getCurrentNavigation() &&
+      this.router.getCurrentNavigation().extras &&
+      this.router.getCurrentNavigation().extras.state &&
+      this.router.getCurrentNavigation().extras.state.purchaseOrder
+    ) {
+      this.openDialog(this.router.getCurrentNavigation().extras.state.purchaseOrder, 1);
+
+    }
+    
+    
+    
+  openDialog(element: any, redirectTo: number) {
+    this.refreshData = false;
+    this.displayEditPOTab = true;
+    this.displaySpinner = true;
+    this.purchaseService
+      .getPurchaseOrderDetailsByPOId(element.purchase_order_master_id)
+      .subscribe(res => {
+        if (res.status === 200) {
+          this.purchaseService
+            .getPurchaseOrderTagsByPOId(element.purchase_order_master_id)
+            .subscribe(result => {
+              if (result.data) {
+                this.purchaseService
+                  .getApproverByPOId({
+                    purchase_order_master_id: element.purchase_order_master_id
+                  })
+                  .subscribe((reslt: any) => {
+                    if (reslt) {
+                      this.editPO.patchTagsData(result.data, reslt.data);
+                      this.editPO.patchPurchaseOrderData(element, res.data);
+                      this.tabGroup.selectedIndex = 4;
+                      this.redirectBackTo = redirectTo;
+                      this.displaySpinner = false;
+                      // const dialogRef = this.dialog.open(
+                      //   ViewDetailPurchaseOrderComponent
+                      // );
+                      // dialogRef.componentInstance.POData = element;
+                      // dialogRef.componentInstance.PODetail = res.data;
+                      // dialogRef.componentInstance.dialogRef = dialogRef;
+                      // dialogRef.componentInstance.POTags = result.data;
+                      // dialogRef.componentInstance.viewPurchaseOrderComponent = this;
+                      // dialogRef.afterClosed().subscribe(result => {
+                      // });
+                    }
+                  });
+              } else {
+                this.displaySpinner = false;
+                // const dialogRef = this.dialog.open(
+                //   ViewDetailPurchaseOrderComponent
+                // );
+                // dialogRef.componentInstance.POData = element;
+                // dialogRef.componentInstance.PODetail = res.data;
+                // dialogRef.componentInstance.dialogRef = dialogRef;
+                // dialogRef.componentInstance.viewPurchaseOrderComponent = this;
+                // dialogRef.afterClosed().subscribe(result => {
+                // });
+              }
+            });
+        }
+        // this.getPendingPurchaseOrder();
+        // this.getPurchaseOrder();
+      });
+  }
