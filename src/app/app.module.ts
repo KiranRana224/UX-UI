@@ -36,6 +36,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { CheckboxSelectComponent } from './UX-UI/checkbox-select/checkbox-select.component';
 import { FormMultiselectComponent } from './form-multiselect/form-multiselect.component';
 import { MultiSelctInputComponent } from './form-multiselect/multi-selct-input/multi-selct-input.component';
+import { Multi1Component } from './UX-UI/multiselectExample/multi1/multi1.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { MultiSelctInputComponent } from './form-multiselect/multi-selct-input/m
     CheckboxSelectComponent,
     FormMultiselectComponent,
     MultiSelctInputComponent,
+    Multi1Component,
   ],
   imports: [
     BrowserModule,
