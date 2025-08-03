@@ -79,30 +79,53 @@
 // });
 
 // server.js
+// const express = require("express");
+// const cors = require("cors");
+// const app = express();
+// app.use(cors());
+
+// const users = Array.from({ length: 100 }, (_, i) => ({
+//   id: i + 1,
+//   name: `User ${i + 1}`,
+// }));
+
+// app.get("/api/users", (req, res) => {
+//   const page = parseInt(req.query.page) || 0;
+//   const size = parseInt(req.query.size) || 10;
+//   const search = (req.query.search || "").toLowerCase();
+
+//   const filtered = users.filter((u) => u.name.toLowerCase().includes(search));
+//   const result = filtered.slice(page * size, (page + 1) * size);
+
+//   res.json({
+//     data: result,
+//     hasMore: (page + 1) * size < filtered.length,
+//   });
+// });
+
+// app.listen(3000, () => {
+//   console.log("API listening on http://localhost:3000");
+// });
+
+/**pagination */
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const PORT = 3000;
+
 app.use(cors());
 
-const users = Array.from({ length: 100 }, (_, i) => ({
-  id: i + 1,
-  name: `User ${i + 1}`,
+const allProducts = Array.from({ length: 100 }, (_, i) => ({
+  id: i.toString(),
+  name: `Fruit ${i + 1}`,
 }));
 
-app.get("/api/users", (req, res) => {
-  const page = parseInt(req.query.page) || 0;
-  const size = parseInt(req.query.size) || 10;
-  const search = (req.query.search || "").toLowerCase();
-
-  const filtered = users.filter((u) => u.name.toLowerCase().includes(search));
-  const result = filtered.slice(page * size, (page + 1) * size);
-
-  res.json({
-    data: result,
-    hasMore: (page + 1) * size < filtered.length,
-  });
+app.get("/products", (req, res) => {
+  const page = +req.query.page || 0;
+  const size = +req.query.size || 10;
+  const start = page * size;
+  const end = start + size;
+  res.json({ products: allProducts.slice(start, end) });
 });
 
-app.listen(3000, () => {
-  console.log("API listening on http://localhost:3000");
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

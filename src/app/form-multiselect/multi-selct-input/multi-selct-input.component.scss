@@ -1,0 +1,22 @@
+// ::ng-deep .mat-select-panel.custom-panel {
+//   padding: 0;
+// }
+
+// .scroll-container {
+//   max-height: 200px;
+//   overflow-y: auto;
+// }
+.full-width {
+  width: 100%;
+}
+
+.custom-select-panel {
+  max-height: 300px !important;
+  overflow: auto !important;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+}

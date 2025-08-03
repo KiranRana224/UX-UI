@@ -1,0 +1,21 @@
+.full-width {
+  width: 100%;
+}
+
+.search-box-wrapper {
+  padding: 8px;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-box-wrapper input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}

@@ -33,6 +33,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CheckboxComponent } from './UX-UI/checkbox/checkbox.component';
 import { NgChartsModule } from 'ng2-charts';
+import { CheckboxSelectComponent } from './UX-UI/checkbox-select/checkbox-select.component';
+import { FormMultiselectComponent } from './form-multiselect/form-multiselect.component';
+import { MultiSelctInputComponent } from './form-multiselect/multi-selct-input/multi-selct-input.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,9 @@ import { NgChartsModule } from 'ng2-charts';
     SelectMultiAllComponent,
     SearcLoadScrollComponent,
     CheckboxComponent,
+    CheckboxSelectComponent,
+    FormMultiselectComponent,
+    MultiSelctInputComponent,
   ],
   imports: [
     BrowserModule,

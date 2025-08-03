@@ -1,0 +1,21 @@
+<mat-form-field appearance="fill" class="full-width">
+  <mat-label>Select Products</mat-label>
+  <mat-select
+    [formControl]="selectedProducts"
+    multiple
+    (openedChange)="onOpen($event)"
+    (scroll)="onScroll($event)"
+    panelClass="custom-select-panel"
+  >
+    <mat-option *ngFor="let product of products" [value]="product.id">
+      {{ product.name }}
+    </mat-option>
+
+    <mat-progress-spinner
+      *ngIf="loading"
+      diameter="24"
+      mode="indeterminate"
+      class="spinner"
+    ></mat-progress-spinner>
+  </mat-select>
+</mat-form-field>
